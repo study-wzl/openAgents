@@ -1,0 +1,16 @@
+{
+  "name": "openagents-foundation",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A self-hosted general Agent foundation built on OpenHands",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "start": "node --env-file-if-exists=.env scripts/start.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "npm --prefix canvas test",
+    "test:e2e": "npm --prefix canvas run test:e2e:foundation"
+  }
+}

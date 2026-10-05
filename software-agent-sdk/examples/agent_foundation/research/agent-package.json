@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "ui_extension_ref": "business-foundation-ui",
+  "id": "research",
+  "version": "1.0.0",
+  "name": "Research brief",
+  "description": "A coordinator compares evidence and risks with two specialists.",
+  "entry_agents": ["coordinator"],
+  "agents": [
+    {
+      "id": "coordinator",
+      "name": "Research coordinator",
+      "llm_profile_ref": "business",
+      "system_prompt": "prompts/coordinator.md",
+      "skills": ["skills/evidence/SKILL.md"],
+      "tools": [{"name": "business_write_report"}],
+      "delegates": ["evidence", "critic"],
+      "tool_policies": {"business_write_report": {"requires_confirmation": false}}
+    },
+    {
+      "id": "evidence",
+      "name": "Evidence analyst",
+      "llm_profile_ref": "business",
+      "system_prompt": "prompts/evidence.md",
+      "skills": ["skills/evidence/SKILL.md"],
+      "tools": [{"name": "research_lookup"}],
+      "tool_policies": {"research_lookup": {"requires_confirmation": false}}
+    },
+    {
+      "id": "critic",
+      "name": "Research critic",
+      "llm_profile_ref": "business",
+      "system_prompt": "prompts/critic.md",
+      "skills": ["skills/evidence/SKILL.md"],
+      "tools": [{"name": "research_lookup"}],
+      "tool_policies": {"research_lookup": {"requires_confirmation": false}}
+    }
+  ]
+}

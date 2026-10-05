@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "ui_extension_ref": "business-foundation-ui",
+  "id": "operations",
+  "version": "1.0.0",
+  "name": "Operations review",
+  "description": "Metrics and runbook specialists prepare a report and an approved escalation.",
+  "entry_agents": ["coordinator"],
+  "agents": [
+    {
+      "id": "coordinator",
+      "name": "Operations coordinator",
+      "llm_profile_ref": "business",
+      "system_prompt": "prompts/coordinator.md",
+      "skills": ["skills/operations-review/SKILL.md"],
+      "tools": [{"name": "business_write_report"}, {"name": "operations_create_ticket"}],
+      "delegates": ["metrics", "runbook"],
+      "tool_policies": {
+        "business_write_report": {"requires_confirmation": false},
+        "operations_create_ticket": {"requires_confirmation": true, "timeout_seconds": 30, "cancellable": false}
+      }
+    },
+    {
+      "id": "metrics",
+      "name": "Metrics analyst",
+      "llm_profile_ref": "business",
+      "system_prompt": "prompts/metrics.md",
+      "skills": ["skills/operations-review/SKILL.md"],
+      "tools": [{"name": "operations_metrics"}],
+      "tool_policies": {"operations_metrics": {"requires_confirmation": false}}
+    },
+    {
+      "id": "runbook",
+      "name": "Runbook reviewer",
+      "llm_profile_ref": "business",
+      "system_prompt": "prompts/runbook.md",
+      "skills": ["skills/operations-review/SKILL.md"],
+      "tools": [{"name": "operations_metrics"}],
+      "tool_policies": {"operations_metrics": {"requires_confirmation": false}}
+    }
+  ]
+}

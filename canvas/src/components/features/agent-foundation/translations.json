@@ -1,0 +1,115 @@
+{
+  "TITLE": { "en": "Your agents", "zh-CN": "你的智能体" },
+  "UNSUPPORTED": {
+    "en": "This Agent Server does not support business agents yet. Upgrade the server to use this page.",
+    "zh-CN": "当前 Agent Server 尚不支持业务智能体。请升级服务端后使用此页面。"
+  },
+  "WELCOME": {
+    "en": "Choose an agent, describe your goal, and follow its progress.",
+    "zh-CN": "选择智能体，描述目标，并查看执行进度。"
+  },
+  "CHOOSE_AGENT": { "en": "Choose an agent", "zh-CN": "选择智能体" },
+  "NO_AGENTS": {
+    "en": "No agents are available yet. Install and enable a business package below to get started.",
+    "zh-CN": "暂无可用智能体。请在下方安装并启用业务包。"
+  },
+  "TASK_LABEL": {
+    "en": "What would you like to accomplish?",
+    "zh-CN": "你想完成什么？"
+  },
+  "TASK_PLACEHOLDER": {
+    "en": "Describe your goal, useful context, and the result you need.",
+    "zh-CN": "描述目标、相关背景以及你希望获得的结果。"
+  },
+  "START_TASK": { "en": "Start task", "zh-CN": "开始任务" },
+  "STARTING": { "en": "Starting…", "zh-CN": "正在启动…" },
+  "LOADING": { "en": "Loading…", "zh-CN": "加载中…" },
+  "RETRY": { "en": "Try again", "zh-CN": "重试" },
+  "NO_BACKEND": {
+    "en": "Connect an Agent Server to get started.",
+    "zh-CN": "连接 Agent Server 后即可开始。"
+  },
+  "REQUEST_FAILED": {
+    "en": "The request could not be completed.",
+    "zh-CN": "请求未能完成。"
+  },
+  "NO_CONVERSATION": {
+    "en": "The task was created but has no conversation yet. Try again with the same task to reconnect.",
+    "zh-CN": "任务已创建，但尚无会话。请重试同一任务以重新连接。"
+  },
+  "PACKAGES": { "en": "Business packages", "zh-CN": "业务包" },
+  "PACKAGES_DESCRIPTION": {
+    "en": "Install a package to add its agents, tools, and skills. Enable it when you are ready to use it.",
+    "zh-CN": "安装业务包以添加智能体、工具和技能，准备好后启用即可使用。"
+  },
+  "SOURCE_LABEL": {
+    "en": "Package directory on the Agent Server",
+    "zh-CN": "Agent Server 上的业务包目录"
+  },
+  "VALIDATE": { "en": "Validate", "zh-CN": "校验" },
+  "VALID": { "en": "Package validation passed.", "zh-CN": "业务包校验通过。" },
+  "INSTALL": { "en": "Install package", "zh-CN": "安装业务包" },
+  "NO_PACKAGES": {
+    "en": "No business packages installed.",
+    "zh-CN": "尚未安装业务包。"
+  },
+  "ENABLE": { "en": "Enable", "zh-CN": "启用" },
+  "DISABLE": { "en": "Disable", "zh-CN": "停用" },
+  "ENABLED": { "en": "Enabled", "zh-CN": "已启用" },
+  "DISABLED": { "en": "Disabled", "zh-CN": "已停用" },
+  "UNINSTALL": { "en": "Uninstall", "zh-CN": "卸载" },
+  "UNINSTALL_CONFIRM": {
+    "en": "Uninstall {{name}}? Its agents will no longer be available for new tasks.",
+    "zh-CN": "卸载 {{name}}？之后新任务将无法使用其中的智能体。"
+  },
+  "KEEP_PACKAGE": { "en": "Keep package", "zh-CN": "保留业务包" },
+  "TASK_PROGRESS": { "en": "Task progress", "zh-CN": "任务进度" },
+  "STOP_TASK": { "en": "Stop task", "zh-CN": "停止任务" },
+  "RESUME_TASK": { "en": "Resume task", "zh-CN": "继续任务" },
+  "QUEUED": { "en": "Queued", "zh-CN": "排队中" },
+  "RUNNING": { "en": "Running", "zh-CN": "执行中" },
+  "WAITING_FOR_CONFIRMATION": {
+    "en": "Waiting for confirmation",
+    "zh-CN": "等待确认"
+  },
+  "CANCELLING": { "en": "Stopping", "zh-CN": "正在停止" },
+  "COMPLETED": { "en": "Completed", "zh-CN": "已完成" },
+  "FAILED": { "en": "Failed", "zh-CN": "失败" },
+  "CANCELLED": { "en": "Stopped", "zh-CN": "已停止" },
+  "INTERRUPTED": { "en": "Interrupted", "zh-CN": "已中断" },
+  "APPROVALS": { "en": "Your confirmation is needed", "zh-CN": "需要你的确认" },
+  "APPROVE": { "en": "Approve", "zh-CN": "同意" },
+  "REJECT": { "en": "Reject", "zh-CN": "拒绝" },
+  "ARTIFACTS": { "en": "Files and results", "zh-CN": "文件与成果" },
+  "NO_ARTIFACTS": {
+    "en": "Files shared with this task and its results will appear here.",
+    "zh-CN": "本任务的附件和成果将显示在这里。"
+  },
+  "UPLOAD": { "en": "Add files", "zh-CN": "添加文件" },
+  "DOWNLOAD": { "en": "Download {{name}}", "zh-CN": "下载 {{name}}" },
+  "SUBTASK": { "en": "Delegated task", "zh-CN": "委派任务" },
+  "UI_EXTENSION_REFERENCE": { "en": "UI extension reference", "zh-CN": "界面扩展引用" },
+  "EFFECTIVE_CONFIG": {
+    "en": "View agent configuration",
+    "zh-CN": "查看智能体配置"
+  },
+  "CALL_RESOLUTION": {
+    "en": "Verify an uncertain tool action",
+    "zh-CN": "核实执行结果不确定的工具操作"
+  },
+  "CALL_RESOLUTION_HELP": {
+    "en": "Check the external system before recording whether this action happened. This decision does not restart the task.",
+    "zh-CN": "请先核查外部系统，再记录此操作是否已经执行。记录决定不会自动继续任务。"
+  },
+  "CALL_EVIDENCE": { "en": "Verification evidence", "zh-CN": "核实依据" },
+  "CALL_EXECUTED": { "en": "Confirmed executed", "zh-CN": "确认已执行" },
+  "CALL_NOT_EXECUTED": {
+    "en": "Confirmed not executed",
+    "zh-CN": "确认未执行"
+  },
+  "CALL_RECORD_DECISION": { "en": "Record decision", "zh-CN": "记录决定" },
+  "CALL_RECORDED": {
+    "en": "Decision recorded. Resume the task separately when you are ready.",
+    "zh-CN": "决定已记录。准备就绪后，请单独选择继续任务。"
+  }
+}

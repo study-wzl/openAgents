@@ -1,0 +1,59 @@
+name: General Agent foundation
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      OH_AGENT_SERVER_LOCAL_PATH: ${{ github.workspace }}/software-agent-sdk
+      OPENHANDS_SUPPRESS_BANNER: "1"
+      OH_PERSISTENCE_DIR: ${{ runner.temp }}/foundation-state
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+      - uses: astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78 # v7
+      - name: Install and build local client and application
+        run: npm run setup
+      - name: Backend behavior and contracts
+        working-directory: software-agent-sdk
+        run: >-
+          uv run --frozen pytest
+          tests/agent_server/test_foundation_packages.py
+          tests/agent_server/test_foundation_examples.py
+          tests/agent_server/test_agent_foundation_runtime.py
+          tests/agent_server/test_agent_foundation_store.py
+          tests/agent_server/test_event_service.py
+          tests/agent_server/canvas_extensions/test_canvas_extensions_manifest.py
+          tests/agent_server/test_server_details_router.py
+          tests/agent_server/test_openapi_contract.py
+          tests/agent_server/test_openapi_discriminator.py
+          tests/agent_server/test_api_authentication.py
+          tests/agent_server/test_agent_profile_conv_start.py
+          tests/sdk/agent/test_agent_serialization.py
+          tests/sdk/conversation/test_local_conversation_plugins.py
+          tests/sdk/profiles/test_resolver.py
+          tests/sdk/test_settings.py
+          tests/sdk/context/test_agent_context.py
+          tests/sdk/mcp/test_mcp_observation.py -q
+      - name: Canonical client
+        working-directory: software-agent-sdk/clients/typescript
+        run: npm run lint && npm test && npm run build
+      - name: Canvas checks
+        working-directory: canvas
+        run: npm run lint && npm test -- --maxWorkers=4 && npm run check-translation-completeness && npm run build:lib
+      - name: Business UI example
+        run: node --test software-agent-sdk/examples/agent_foundation/ui/extension.test.mjs
+      - name: Real Agent Server browser E2E
+        working-directory: canvas
+        run: npx playwright install --with-deps chromium && npm run test:e2e:foundation

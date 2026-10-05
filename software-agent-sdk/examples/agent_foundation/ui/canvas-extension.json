@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "name": "business-foundation-ui",
+  "display_name": "Business task examples",
+  "version": "1.0.0",
+  "description": "Research and operations forms and report cards using the Canvas host API.",
+  "entrypoint": "extension.mjs",
+  "contributes": {
+    "pages": [{ "id": "business-task", "title": "Business tasks", "path": "/tasks" }],
+    "result_renderers": [
+      { "id": "research-report", "package_id": "research", "tool_name": "business_write_report", "schema_version": 1 },
+      { "id": "operations-report", "package_id": "operations", "tool_name": "business_write_report", "schema_version": 1 },
+      { "id": "research-task", "package_id": "research", "tool_name": "task_result", "schema_version": 1 },
+      { "id": "operations-task", "package_id": "operations", "tool_name": "task_result", "schema_version": 1 }
+    ]
+  }
+}
